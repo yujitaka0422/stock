@@ -14,6 +14,7 @@ payload = {
     'Date': selected_date.isoformat()  # 日付をISO形式（YYYY-MM-DD）に変換
 }
 
+
 # FastAPIサーバーにPOSTリクエストを送信
 url = 'http://127.0.0.1:8000/predict'  # URLの末尾に '/predict' を追加
 # url = 'http://127.0.0.1:8000/predict'
@@ -29,13 +30,10 @@ try:
         # レスポンスデータから各種数値を取得
         predicted_price = response_data.get('予測株価')
         features = {
-            '出来高': response_data.get('出来高'),
             '売上高営業利益率': response_data.get('売上高営業利益率'),
             '営業利益成長率': response_data.get('営業利益成長率'),
             '売上高成長率': response_data.get('売上高成長率'),
-            '労働生産性成長率': response_data.get('労働生産性成長率'),
             '投下資本利益率': response_data.get('投下資本利益率'),
-            '研究開発比率': response_data.get('研究開発比率'),
             '為替レート': response_data.get('為替レート')
         }
 
